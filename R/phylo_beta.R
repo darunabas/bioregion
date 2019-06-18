@@ -69,7 +69,7 @@ phylo_community <- function(x, phy){
 #' betapart package to compute pairwise and multiple-site phylogenetic
 #' dissimilarities.
 #'
-#' @aliases phylo_betapart_core beta_sparse_core
+#' @aliases phylobeta_core beta_sparse_core
 #' @param x an object of class Matrix or matrix
 #' @param phy a phylogenetic tree (object of class phylo)
 #'

@@ -2,7 +2,6 @@
 % Please edit documentation in R/phylo_beta.R
 \name{phylobeta_core}
 \alias{phylobeta_core}
-\alias{phylo_betapart_core}
 \alias{beta_sparse_core}
 \title{Phylogenetic beta diversity}
 \usage{

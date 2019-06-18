@@ -12,4 +12,4 @@ URL: https://github.com/KlausVigo/phyloregion
 BugReports: https://github.com/KlausVigo/phyloregion/issues
 License: AGPL-3
 Encoding: UTF-8
-
+RoxygenNote: 6.1.1
