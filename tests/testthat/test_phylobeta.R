@@ -2,7 +2,7 @@ context("phylo_beta")
 
 ## generate data
 
-
+library(bioregion)
 library(betapart)
 library(ape)
 
@@ -12,9 +12,8 @@ com <- matrix(c(1,0,1,1,0,0,
                 1,1,1,1,1,1,
                 0,0,1,1,0,1), 6, 4,
                 dimnames=list(paste0("g",1:6), tree$tip.label))
-pc <- phylo_community(com, tree)
-pd(pc)
-pbc_phyloregion <- phylobeta_core(pc)
+pd_bioregion <- PD(com, tree)
+pbc_phyloregion <- phylobeta_core(com, tree)
 pbc_betapart <- phylo.betapart.core(com, tree)
 
 
@@ -40,7 +39,7 @@ test_that("phylo_builder works", {
   expect_false(is.binary(pb_tree))
 })
 
-test_that("phylo_betapart_core works", {
+test_that("phylobeta_core works", {
   ## common subtrees should be identical
   expect_equal(phylo.beta.multi(pbc_phyloregion),
                phylo.beta.multi(pbc_betapart))
