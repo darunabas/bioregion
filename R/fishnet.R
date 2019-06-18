@@ -18,7 +18,7 @@
 #' @references
 #'
 #' \insertRef{Philips2006}{bioregion}
-#'
+#' @importFrom Rdpack reprompt
 #' @examples
 #' library(raster)
 #' file <- paste0(system.file(package="bioregion"), "/inst/nigeria/nigeria.shp")

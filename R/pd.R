@@ -16,7 +16,7 @@
 #'                 1,1,1,1,1,1,
 #'                 0,0,1,1,0,1), 6, 4,
 #'               dimnames=list(paste0("g",1:6), tree$tip.label))
-#' PD(com, phy)
+#' PD(com, tree)
 #' @rdname PD
 #' @export
 PD <- function(x, phy){
