@@ -74,7 +74,7 @@ phylo_community <- function(x, phy){
 #' @param phy a phylogenetic tree (object of class phylo)
 #'
 #' @keywords cluster
-#' @seealso read.community pd
+#' @seealso read.community PD
 #' @examples
 #' library(ape)
 #' tree <- read.tree(text ="((t1:1,t2:1)N2:1,(t3:1,t4:1)N3:1)N1;")
@@ -96,7 +96,6 @@ phylobeta_core <- function(x, phy){
   l <- length(x)
   el <- attr(x, "edge.length")
   pd_tmp <- vapply(x, function(x, el)sum(el[x]), 0, el)
-#  pd_tmp <- pd(x)
 
   Labels <- names(x)
   class(x) <- NULL
@@ -134,45 +133,6 @@ phylobeta_core <- function(x, phy){
 }
 
 
-
-phylobeta_core_old <- function(x){
-  l <- length(x)
-  pd_tmp <- pd(x)
-  el <- attr(x, "edge.length")
-  Labels <- names(x)
-  class(x) <- NULL
-  SHARED <- vector("numeric", l*(l-1)/2)
-  B <- vector("numeric", l*(l-1)/2)
-  C <- vector("numeric", l*(l-1)/2)
-
-  k <- 1
-  for(i in 1:(l-1)){
-    xi <- x[[i]]
-    for(j in (i+1):l){
-      #   sum(el[fast_intersect(x[[i]], x[[j]])])
-      SHARED[k] <- sum(el[xi[fmatch(x[[j]], xi, 0L)] ])
-      B[k] <- pd_tmp[i] - SHARED[k]
-      C[k] <- pd_tmp[j] - SHARED[k]
-      k <- k+1
-    }
-  }
-
-  sum.not.shared <- B+C
-  max.not.shared <- pmax(B,C)
-  min.not.shared <- pmin(B,C)
-
-  at <- structure(list(Labels=Labels, Size = l, class = "dist", Diag = FALSE,
-                       Upper = FALSE), .Names = c("Labels", "Size", "class", "Diag", "Upper"))
-  attributes(SHARED) <- at
-  attributes(sum.not.shared) <- at
-  attributes(max.not.shared) <- at
-  attributes(min.not.shared) <- at
-  res <- list(sumSi=sum(pd_tmp), St=sum(el), shared=SHARED,
-              sum.not.shared = sum.not.shared,
-              max.not.shared=max.not.shared, min.not.shared=min.not.shared)
-  class(res) <- "phylo.betapart"
-  res
-}
 
 #' Match taxa and in phylogeny and community matrix
 #'

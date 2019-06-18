@@ -35,6 +35,6 @@ phylo.beta.pair(pbc)
 
 }
 \seealso{
-read.community pd
+read.community PD
 }
 \keyword{cluster}
