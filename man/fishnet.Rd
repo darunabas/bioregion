@@ -19,8 +19,8 @@ predict species ranges.
 }
 \examples{
 library(raster)
-file <- paste0(system.file(package="bioregion"), "/inst/nigeria/nigeria.shp")
-d <- shapefile(file)
+file <- system.file("nigeria/nigeria.rds", package="bioregion")
+d <- readRDS(file)
 d1 <- fishnet(d, res = 0.75)
 }
 \references{

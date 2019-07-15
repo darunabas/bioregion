@@ -2,31 +2,40 @@
 % Please edit documentation in R/choropleth.R
 \name{choropleth}
 \alias{choropleth}
-\title{Binning shapefile polygons based upon a slot value}
+\title{Binning shapefile polygons based on slot values}
 \usage{
-choropleth(x, k = 10, ...)
+choropleth(x, values, k = 10, ...)
 }
 \arguments{
-\item{\dots}{Further arguments passed to or from other methods.}
+\item{x}{An object of the class SpatialPolygonsDataFrame.}
 
-\item{P}{A site × site phylogenetic beta diversity distance matrix}
+\item{values}{The column in the SpatialPolygonsDataFrame for which to discretize 
+the values of the quantity.}
+
+\item{k}{Numeric, the desired number of bins to discretize.}
+
+\item{\dots}{Further arguments passed to or from other methods.}
 }
 \value{
-\item{choropleth}{A dataframe with evolutionary distinctiveness of each
-phyloregion}
+\item{choropleth} {returns a SpatialPolygonsDataFrame with a column with the 
+discretized values}
 }
 \description{
 The \code{choropleth} function discretizes the values of a quantity based 
 on their quantiles.
 }
 \examples{
-library(raster)
-file <- paste0(system.file(package="bioregion"), "/inst/SppRich_NG/SR_Nigeria.shp")
-s <- shapefile(file)
+x <- c("raster", "colorRamps")
+lapply(x, library, character.only = TRUE)
+s <- readRDS(system.file("nigeria/SR_Naija.rds", package= "bioregion"))
 k=10
-COLOUR <- terrain.colors(k)
-y = choropleth(s, k)
-plot(y, col=COLOUR[y$SR])
+COLOUR <- blue2green2red(k)
+y = choropleth(s, values=s$SR, k)
+ 
+## Not run: 
+plot(y, col=COLOUR[y$values], border = NA)
+ 
+## End(Not run)
 
 }
 \keyword{cluster}

@@ -2,24 +2,26 @@
 % Please edit documentation in R/WeightedEndemism.R
 \name{weighted.endemism}
 \alias{weighted.endemism}
-\title{Read in sparse community matrices}
+\title{Measures the distribution of narrow-ranged or endemic species.}
 \usage{
 weighted.endemism(x)
 }
 \arguments{
-\item{files}{A community matrix}
+\item{files}{A community matrix or data frame.}
 }
 \value{
-\item{psim}{A site × site phylogenetic beta diversity distance matrix}
+\item{}{A data frame of species traits by site}
 }
 \description{
 \code{weighted.endemism} is species richness inversely weighted
 by species ranges.
 }
 \examples{
-fdir <- system.file("Aloes", package="bioregion")
+require(data.table)
+fdir <- system.file("NGAplants", package="bioregion")
 files <- file.path(fdir, dir(fdir))
-res <- raster2comm(files)
+dat <- data.frame(raster2comm(files))
+Endm <- weighted.endemism(dat)
 }
 \references{
 \insertRef{Crispetal2001}{bioregion}

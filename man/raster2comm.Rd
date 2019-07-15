@@ -14,7 +14,7 @@ raster2comm(files)
 modeling into a community matrix.
 }
 \examples{
-fdir <- system.file("Aloes", package="bioregion")
+fdir <- system.file("NGAplants", package="bioregion")
 files <- file.path(fdir, dir(fdir))
 res <- raster2comm(files)
 

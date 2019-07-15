@@ -27,7 +27,7 @@ make_poly <- function(file){
 #' @importFrom raster values
 #' @importFrom sp CRS proj4string<-
 #' @examples
-#' fdir <- system.file("Aloes", package="bioregion")
+#' fdir <- system.file("NGAplants", package="bioregion")
 #' files <- file.path(fdir, dir(fdir))
 #' res <- raster2comm(files)
 #'

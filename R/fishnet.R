@@ -8,8 +8,8 @@
 #' @rdname fishnet
 #' @keywords bioregion
 #' @importFrom raster raster rasterToPolygons xyFromCell ncell
-#' @importFrom raster values
-#' @importFrom sp CRS proj4string<-
+#' @importFrom raster values extent
+#' @importFrom sp CRS proj4string
 #'
 #' @export
 #' @return
@@ -21,15 +21,15 @@
 #' @importFrom Rdpack reprompt
 #' @examples
 #' library(raster)
-#' file <- paste0(system.file(package="bioregion"), "/inst/nigeria/nigeria.shp")
-#' d <- shapefile(file)
+#' file <- system.file("nigeria/nigeria.rds", package="bioregion")
+#' d <- readRDS(file)
 #' d1 <- fishnet(d, res = 0.75)
-fishnet <- function(shp, res=0.5){
+fishnet <- function(shp, res = 0.5){
   s <- raster(extent(shp))
   res(s) <- res
-  proj4string(s)<-proj4string(shp)
+  proj4string(s) <- proj4string(shp)
   m <- rasterToPolygons(s)
-  dd <- intersect(shp, m)
+  dd <- raster::intersect(shp, m)
   dd
 }
 

@@ -3,7 +3,7 @@
 #' The \code{addFamily} function estimates evolutionary distinctiveness of
 #' each
 #' phyloregion by computing the mean value of phylogenetic beta diversity
-#' between a focal phyloregion and all other phyloregions in the study area.
+#' between a focal phyloregion and all other phyloregions in the study area..
 #'
 #' @param P A site × site phylogenetic beta diversity distance matrix
 #' @param \dots Further arguments passed to or from other methods.
