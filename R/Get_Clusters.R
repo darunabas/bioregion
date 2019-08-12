@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' require(phylobase)
-#' geo <- get(data(geospiza))
+#' geo <- get(data(geospiza_raw))
 #' tree <- geo$tree
 #' plot(tree)
 #' axisPhylo(side = 1)
