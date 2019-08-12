@@ -25,11 +25,10 @@ The \code{choropleth} function discretizes the values of a quantity based
 on their quantiles.
 }
 \examples{
-x <- c("raster", "colorRamps")
-lapply(x, library, character.only = TRUE)
+require(raster)
 s <- readRDS(system.file("nigeria/SR_Naija.rds", package= "bioregion"))
 k=10
-COLOUR <- blue2green2red(k)
+COLOUR <- colorRampPalette(c("blue", "yellow", "red"))(k)
 y = choropleth(s, values=s$SR, k)
  
 ## Not run: 

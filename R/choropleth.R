@@ -15,11 +15,10 @@
 #' \item{choropleth} {returns a SpatialPolygonsDataFrame with a column with the 
 #' discretized values}
 #' @examples
-#' x <- c("raster", "colorRamps")
-#' lapply(x, library, character.only = TRUE)
+#' require(raster)
 #' s <- readRDS(system.file("nigeria/SR_Naija.rds", package= "bioregion"))
 #' k=10
-#' COLOUR <- blue2green2red(k)
+#' COLOUR <- colorRampPalette(c("blue", "yellow", "red"))(k)
 #' y = choropleth(s, values=s$SR, k)
 #'  
 #' ## Not run: 
