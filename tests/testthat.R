@@ -1,4 +1,4 @@
 library(testthat)
-suppressPackageStartupMessages(library(phyloregion))
+suppressPackageStartupMessages(library(bioregion))
 
-test_check("phyloregion")
+test_check("bioregion")

@@ -17,10 +17,9 @@ phylo object (as in the \code{ape} package).}
 \code{getClusters} returns the tips that descend from a given node or time depth on a dated phylogenetic tree.
 }
 \examples{
-require(ape)
+require(phylobase)
 geo <- get(data(geospiza))
-tree <- geo$phy
-tree <- midpoint(tree)
+tree <- geo$tree
 plot(tree)
 axisPhylo(side = 1)
 getClusters(tree, .3)

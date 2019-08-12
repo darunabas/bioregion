@@ -16,10 +16,9 @@
 #' \insertRef{Schliep2010}{bioregion}
 #'
 #' @examples
-#' require(ape)
+#' require(phylobase)
 #' geo <- get(data(geospiza))
-#' tree <- geo$phy
-#' tree <- midpoint(tree)
+#' tree <- geo$tree
 #' plot(tree)
 #' axisPhylo(side = 1)
 #' getClusters(tree, .3)
